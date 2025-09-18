@@ -5,10 +5,10 @@ import CountUp from "react-countup";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 
+    <div className="min-h-screen bg-gradient-to-b from-[#f0fdf1]/20 to-white
                     flex flex-col py-10 px-4 md:px-6 lg:px-8 mt-20">
       <div className="mx-auto w-full max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {Data.map((item) => (
             <div
               key={item.title}
@@ -20,9 +20,6 @@ export default function Home() {
               
               tabIndex={0}
               aria-label={item.title}`}
-              //  style={{ borderColor: item.color }}
-              // tabIndex={0}
-              // aria-label={item.title}
             >
               {/* أيقونة */}
               <div className="p-3 rounded-xl border border-gray-200 shadow-sm bg-gray-50 text-gray-600">
@@ -30,7 +27,7 @@ export default function Home() {
               </div>
 
               {/* الرقم الأساسي */}
-              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900">
                 <CountUp end={item.value} duration={2.5} separator="," />
               </h2>
 
@@ -39,7 +36,8 @@ export default function Home() {
                 className="
                   inline-flex items-center gap-2 rounded-full
                   border border-gray-200 bg-gray-50
-                  px-3 py-1 text-xs font-medium text-gray-600
+                  px-3 py-1 text-xs text-gray-600
+                  font-bold
                 "
                 title={item.title}
               >
@@ -51,7 +49,7 @@ export default function Home() {
                 <span className="rounded-full px-2 py-0.5 text-[11px] border border-gray-200 bg-white text-gray-500 shadow-sm">
                   الإجمالي
                 </span>
-                <span className="text-base md:text-lg font-semibold text-gray-800">
+                <span className="text-md md:text-xl font-semibold text-gray-800">
                   <CountUp end={item.total} duration={2} separator="," />
                 </span>
               </div>

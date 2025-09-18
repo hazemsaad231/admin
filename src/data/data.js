@@ -179,14 +179,14 @@ const Data = [
       chart: (
         <Chart
           options={{
-            chart: { type: "donut", height: 60, sparkline: { enabled: true } },
+            chart: { type: "polarArea", height: 60, sparkline: { enabled: true } },
             labels: ["مسجل", "باقي"],
             colors: [colors[4], "blue"],
             legend: { show: false },
             tooltip: { enabled: false },
           }}
           series={[0, 135]}
-          type="donut"
+          type = 'polarArea'
           height={60}
         />
       ),
