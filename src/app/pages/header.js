@@ -32,7 +32,7 @@ export default function Header() {
         </div>
 
         {/* Search */}
-        <div className="relative w-40 sm:w-56 md:w-80 lg:w-96">
+        <div className="relative hidden md:block w-40 sm:w-56 md:w-80 lg:w-96">
           <CiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             type="text"
