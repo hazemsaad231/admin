@@ -14,7 +14,7 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export const colors = ['orange','#582f0e',"#3b82f6","#ef4444",'blue','#10b981','#5e503f']
 
-/** شارة أيقونة مرتبطة بلون الشارت */
+
 const IconBadge = ({
   children,
   color,
@@ -40,7 +40,6 @@ const IconBadge = ({
   </span>
 );
 
-// إعدادات عامة للسباركلاين
 const sparkOptions = (color = "#22c55e") => ({
   chart: { type: "area", height: 60, sparkline: { enabled: true } },
   stroke: { curve: "smooth", width: 2 },
@@ -77,7 +76,6 @@ const Data = [
     };
   })(),
 
-  // 1) Area
   (() => {
     return {
       title: "عدد مشاريع الجمعيات المنشورة في المنصة",

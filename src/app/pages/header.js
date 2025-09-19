@@ -1,13 +1,20 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
 import { CiSearch, CiUser } from "react-icons/ci";
-
+import Data from "@/data/data";
 export default function Header() {
   const today = new Date().toLocaleDateString("ar-EG", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
+
+  const [search, setSearch] = useState("");
+
+const handelSearch = () => {
+  console.log("Searching for:", search);
+}
 
   return (
     <header
@@ -43,6 +50,10 @@ export default function Header() {
               focus:outline-none focus:ring-2 focus:ring-blue-500/40 focus:border-blue-400
               placeholder:text-gray-400
             "
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            aria-label="Search"
+            title="Search"
           />
         </div>
 

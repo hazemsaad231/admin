@@ -4,6 +4,7 @@ import Data from "@/data/data";
 import CountUp from "react-countup";
 
 export default function Home() {
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#f0fdf1]/20 to-white
                     flex flex-col py-10 px-4 md:px-6 lg:px-8 mt-20">
@@ -54,7 +55,7 @@ export default function Home() {
                 </span>
               </div>
 
-              {/* الرسم البياني لو متاح */}
+              {/* الرسم البياني */}
               {item.chart && (
                 <div className="mt-3 h-16 md:h-20 w-full [direction:ltr]">
                   {item.chart}
