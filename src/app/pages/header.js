@@ -23,6 +23,11 @@ export default function Header() {
     if (mobileSearchOpen && inputRef.current) inputRef.current.focus();
   }, [mobileSearchOpen]);
 
+  const reset = () => {
+    setSearch("");
+    setMobileSearchOpen(false);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 h-20 shadow-sm rounded-b-2xl
@@ -165,7 +170,7 @@ export default function Header() {
                 aria-label="إغلاق البحث"
                 title="إغلاق"
               >
-                <IoClose className="text-xl" />
+                <IoClose className="text-xl" onClick={reset}/>
               </button>
             </div>
           </div>
