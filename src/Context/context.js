@@ -30,7 +30,7 @@ setData(Data);
     document.body.style.color = isDarkMode ? "black" : "white";
     setIsDarkMode((prev) => !prev);
   }, [isDarkMode]);
-    console.log("data saved")
+    console.log("isDarkMode:", isDarkMode);
 
 
     return(
