@@ -12,7 +12,7 @@ import { FaFolderOpen, FaGlobe } from "react-icons/fa";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 
-export const colors = ['orange','#582f0e',"#3b82f6","#ef4444",'blue','#10b981','#5e503f']
+export const colors = ['orange','black',"blue","aqua",'brown','gray','green'];
 
 
 const IconBadge = ({

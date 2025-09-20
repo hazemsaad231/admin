@@ -1,45 +1,51 @@
 "use client";
 
-import Data from "@/data/data";
+
+import { useContext } from "react";
+import { Context } from "@/Context/context";
 import CountUp from "react-countup";
 
 export default function Home() {
 
+    const { isDarkMode, filteredData} = useContext(Context);
+
+
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f0fdf1]/20 to-white
-                    flex flex-col py-10 px-4 md:px-6 lg:px-8 mt-20">
+    <div className={`min-h-screen ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'}
+                    flex flex-col py-10 px-4 md:px-6 lg:px-8 mt-20`}>
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-          {Data.map((item) => (
+          {filteredData.map((item) => (
             <div
               key={item.title}
               className={`
-                bg-white rounded-2xl border border-gray-200
-                shadow-sm hover:shadow-lg transition-all duration-300
+              border ${isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-black border-gray-200'}
+                shadow-sm hover:shadow-lg transition-all duration-500 rounded-2xl
                 p-2 flex flex-col items-center text-center gap-4
-                hover:-translate-y-1
+                hover:-translate-y-4
               
               tabIndex={0}
               aria-label={item.title}`}
             >
               {/* أيقونة */}
-              <div className="p-3 rounded-xl border border-gray-200 shadow-sm bg-gray-50 text-gray-600">
+              <div className={`p-3 rounded-xl border ${isDarkMode ? 'bg-gray-600 border-gray-500' : 'bg-gray-100 border-gray-300'}`}>
                 {item.icon}
               </div>
 
               {/* الرقم الأساسي */}
-              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+              <h2 className={`text-3xl md:text-5xl font-extrabold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                 <CountUp end={item.value} duration={2.5} separator="," />
               </h2>
 
               {/* العنوان */}
               <div
-                className="
+                className={`
                   inline-flex items-center gap-2 rounded-full
-                  border border-gray-200 bg-gray-50
-                  px-3 py-1 text-xs text-gray-600
+                  border ${isDarkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-gray-100 border-gray-300 text-gray-800'}
+                  px-3 py-1 text-xs
                   font-bold
-                "
+                `}
                 title={item.title}
               >
                 {item.title}
@@ -47,10 +53,10 @@ export default function Home() {
 
               {/* الإجمالي */}
               <div className="flex items-center gap-2 mt-1">
-                <span className="rounded-full px-2 py-0.5 text-[11px] border border-gray-200 bg-white text-gray-500 shadow-sm">
+                <span className={`rounded-full px-2 py-0.5 text-[11px] border ${isDarkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-gray-100 border-gray-300 text-gray-800'} shadow-sm`}>
                   الإجمالي
                 </span>
-                <span className="text-md md:text-xl font-semibold text-gray-800">
+                <span className={`text-md md:text-xl font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
                   <CountUp end={item.total} duration={2} separator="," />
                 </span>
               </div>

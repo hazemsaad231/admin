@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./pages/header";
 import { Cairo, Amiri } from "next/font/google";
-
+import { ContextProvider } from "@/Context/context";
 export const cairo = Cairo({
   subsets: ["arabic"],
   weight: ["300","400","600","700"],
@@ -37,8 +37,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cairo.variable} ${amiri.variable} antialiased`}
       >
-        <Header/>
+        <ContextProvider>
+          <Header/>
         {children}
+        </ContextProvider>
+        
       </body>
     </html>
   );
