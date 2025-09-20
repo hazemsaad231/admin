@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { createContext } from 'react'
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback} from 'react';
 import Data from '@/data/data';
 
 
@@ -11,11 +11,7 @@ export const Context = createContext(null);
 export const ContextProvider = (props) => {
  const [isDarkMode, setIsDarkMode] = useState(false);
 
-const [data, setData] = useState([]);
-
-    useEffect(() => {
-setData(Data);
-    }, []);
+const [data, setData] = useState(Data);
 
     
   const [search, setSearch] = useState("");
