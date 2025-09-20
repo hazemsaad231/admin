@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { CiSearch, CiUser } from "react-icons/ci";
 import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
-import { useContext , useState } from "react";
+import { useContext } from "react";
 import { Context } from "@/Context/context";
 
 export default function Header() {
@@ -21,7 +21,7 @@ export default function Header() {
       className={` fixed top-0 left-0 w-full z-50 h-20 shadow-sm rounded-b-2xl
         ${isDarkMode ? "bg-[#111827] text-gray-100" : "bg-white text-gray-900"} `}
     >
-      <div className="h-full mx-auto max-w-7xl px-4 md:px-6 lg:px-8 flex items-center justify-between">
+      <div className="h-full mx-auto max-w-7xl px-2 md:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <Image
@@ -70,7 +70,7 @@ export default function Header() {
           </span>
 
           <div
-            className="flex items-center gap-2"
+            className="flex items-center gap-[2px]"
             aria-label="المسئول"
             title="المسئول"
           >
@@ -79,6 +79,7 @@ export default function Header() {
           </div>
 
           <div>
+            
             {isDarkMode ? (
               <MdOutlineLightMode
                 className="text-2xl mt-1 cursor-pointer text-yellow-400"
