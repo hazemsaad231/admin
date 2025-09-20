@@ -25,7 +25,7 @@ setData(Data);
   );
 
     const toggleMode = useCallback(() => {
-    document.body.style.transition = "background-color 0.7s ease, color 0.7s ease";
+    document.body.style.transition = "background-color 0.3s ease, color 0.3s ease";
     document.body.style.backgroundColor = isDarkMode ? "#F5F5F5" : "#1F2937";
     document.body.style.color = isDarkMode ? "black" : "white";
     setIsDarkMode((prev) => !prev);
