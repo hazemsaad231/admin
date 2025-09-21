@@ -36,14 +36,15 @@ export default function Header() {
       <div className="h-full mx-auto max-w-7xl px-1 md:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <Image
+          <a href="https://taqreebye.com/"> <Image
             src="/logo.webp"
             alt="Logo"
             width={50}
             height={30}
-            className="object-contain"
+            className="object-contain shadow-lg rounded-xl cursor-pointer"
             priority
-          />
+          /> </a>
+         
         </div>
 
         {/* الشاشات الكبيرة Search */}
