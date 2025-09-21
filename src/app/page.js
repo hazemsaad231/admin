@@ -63,7 +63,7 @@ export default function Home() {
 
               {/* الرسم البياني */}
               {item.chart && (
-                <div className="mt-3 h-16 md:h-20 w-full [direction:ltr]">
+                <div className="mt-3 h-16 md:h-20 w-full [direction:ltr] text-gray-500">
                   {item.chart}
                 </div>
               )}

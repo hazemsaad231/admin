@@ -18,27 +18,19 @@ export const colors = ['orange','black',"blue","aqua",'brown','gray','green'];
 const IconBadge = ({
   children,
   color,
-  size = 60,
 }) => (
-  <span
-    className="
-      flex items-center justify-center rounded-2xl
-      transition-transform duration-300 p-2
-    "
-  >
+
     <span
       className="rounded-lg flex items-center justify-center text-5xl"
       style={{
         color,
-        width: size,
-        height: size,
         textShadow: `0 0 8px ${color}22`,
       }}
     >
       {children}
     </span>
-  </span>
 );
+
 
 const sparkOptions = (color = "#22c55e") => ({
   chart: { type: "area", height: 60, sparkline: { enabled: true } },
@@ -48,34 +40,54 @@ const sparkOptions = (color = "#22c55e") => ({
   tooltip: { x: { show: false } },
 });
 
-const Data = [
-  (() => {
-    return {
-      title: "عدد زوار المنصة",
-      value: 9615,
-      total: 66725,
-      color: colors[0],
-      icon: (
-        <IconBadge color={colors[0]}>
-          <CiUser />
-        </IconBadge>
-      ),
-      chart: (
-        <Chart
-          options={{
-            ...sparkOptions(colors[0]),
-            chart: { type: "line", height: 60, sparkline: { enabled: true } },
-            stroke: { curve: "smooth", width: 2 },
-            fill: { opacity: 0 }, // خط فقط
-          }}
-          series={[{ data: [50, 48, 55, 60, 65, 70, 80] }]}
-          type="line"
-          height={60}
-        />
-      ),
-    };
-  })(),
 
+
+
+const Data = [
+
+(() => {
+  const title = "عدد زوار المنصة";
+  const value = 9615;
+  const total = 66725;
+  const color = colors[0];
+
+  return {
+    title,
+    value,
+    total,
+    color,
+    icon: (
+      <IconBadge color={color}>
+        <CiUser />
+      </IconBadge>
+    ),
+    chart: (
+      <Chart
+        options={{
+          ...sparkOptions(color),
+          chart: { type: "line", height: 60, sparkline: { enabled: true } },
+          stroke: { curve: "smooth", width: 2 },
+          fill: { opacity: 0 },
+          tooltip: {
+            x: { show: false },
+            y: {
+              formatter: (val) => `${val.toLocaleString("ar-EG")} زائر`,
+            },
+          },
+        }}
+        series={[
+          {
+            name: "عدد الزوار",
+            data: [1200, 2300, 3500, 4700, 6000, 7800, value],
+          },
+        ]}
+        type="line"
+        height={60}
+      />
+    ),
+  };
+})()
+,
   (() => {
     return {
       title: "عدد مشاريع الجمعيات المنشورة في المنصة",
@@ -91,7 +103,7 @@ const Data = [
       chart: (
         <Chart
           options={sparkOptions(colors[1])}
-          series={[{ data: [3, 5, 4, 7, 9, 8, 10] }]}
+          series={[{ data: [5, 7, 15, 22, 30, 31, 37] }]}
           type="area"
           height={60}
         />
@@ -119,7 +131,7 @@ const Data = [
             chart: { type: "bar", height: 60, sparkline: { enabled: true } },
             plotOptions: { bar: { columnWidth: "60%", borderRadius: 3 } },
           }}
-          series={[{ data: [20, 25, 22, 28, 30, 27, 32] }]}
+          series={[{ data: [1000, 5205, 8002, 13778, 22220, 35000, 42135] }]}
           type="bar"
           height={60}
         />
@@ -215,15 +227,7 @@ const Data = [
           series={[
             {
               name: "W",
-              data: [
-                { x: "1", y: 10 },
-                { x: "2", y: 15 },
-                { x: "3", y: 12 },
-                { x: "4", y: 18 },
-                { x: "5", y: 20 },
-                { x: "6", y: 19 },
-                { x: "7", y: 25 },
-              ],
+              data: [12, 19, 8, 15, 10, 17, 1658],
             },
           ]}
           type="heatmap"
@@ -259,13 +263,21 @@ const Data = [
             {
               name: "خطة",
               data: [
-                [1, 0],
-                [2, 0],
+                [11, 0],
+                [10, 0],
                 [3, 1],
-                [4, 0],
-                [5, 2],
-                [6, 1],
-                [7, 3],
+                [4, 6],
+                [9, 2],
+                [6, 9],
+                [3, 5],
+                [7, 6],
+                [1, 7],
+                [2, 3],
+                [5, 8],
+                [0, 3],
+                [8, 2],
+
+
               ],
             },
           ]}
