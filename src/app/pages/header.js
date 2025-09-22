@@ -133,11 +133,10 @@ export default function Header() {
           aria-modal="true"
         >
           <div
-            className="absolute inset-0 bg-black/40"
             onClick={() => setMobileSearchOpen(false)}
           />
           <div
-            className={`absolute top-0 left-0 right-0 mt-2 mx-2 rounded-2xl border shadow-lg
+            className={`absolute top-0 left-0 right-0 mt-2 mx-1 rounded-2xl border shadow-lg
             ${
               isDarkMode
                 ? "bg-[#111827] border-gray-700"

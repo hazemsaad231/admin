@@ -13,7 +13,13 @@ export default function Home() {
     <div className={`min-h-screen ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'}
                     flex flex-col py-8 px-4 md:px-6 lg:px-8 mt-20`}>
       <div className="mx-auto w-full max-w-7xl">
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-3`}>
+        <div className={`grid gap-3 ${
+          filteredData.length === 1
+            ? 'grid-cols-1'
+            : filteredData.length === 2
+            ? 'grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2'
+            : 'grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+        }`}>
           {filteredData.map((item) => (
             <div
               key={item.title}
