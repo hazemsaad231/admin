@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 h-20 shadow-sm rounded-b-2xl
+      className={`fixed top-0 left-0 w-full z-50 h-20 shadow-sm rounded-b-4xl
       ${isDarkMode ? "bg-[#111827] text-gray-100" : "bg-white text-gray-900"}`}
     >
       <div className="h-full mx-auto max-w-7xl px-1 md:px-6 lg:px-8 flex items-center justify-between">
