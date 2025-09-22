@@ -35,13 +35,13 @@ export default function Header() {
     >
       <div className="h-full mx-auto max-w-7xl px-1 md:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center">
           <a href="https://taqreebye.com/"> <Image
             src="/logo.webp"
             alt="Logo"
             width={50}
             height={50}
-            className="object-contain shadow-lg rounded-2xl w-10 h-10 md:w-16 md:h-16 cursor-pointer hover:scale-105 transition-transform duration-300"
+            className="object-contain shadow-lg rounded-2xl w-12 h-12 md:w-16 md:h-16 cursor-pointer hover:scale-105 transition-transform duration-300"
             priority
           /> </a>
          
