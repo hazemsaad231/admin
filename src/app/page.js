@@ -13,21 +13,21 @@ export default function Home() {
     <div className={`min-h-screen ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'}
                     flex flex-col py-10 px-4 md:px-6 lg:px-8 mt-20`}>
       <div className="mx-auto w-full max-w-7xl">
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4`}>
           {filteredData.map((item) => (
             <div
               key={item.title}
               className={`
               border ${isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-black border-gray-200'}
                 shadow-sm hover:shadow-lg transition-all duration-500 rounded-2xl
-                p-2 flex flex-col items-center text-center gap-4
+                p-2 flex flex-col items-center text-center gap-3
                 hover:-translate-y-4
               
               tabIndex={0}
               aria-label={item.title}`}
             >
               {/* أيقونة */}
-              <div className={`p-3 rounded-xl border ${isDarkMode ? 'bg-gray-600 border-gray-500' : 'bg-gray-100 border-gray-300'}`}>
+              <div className={`p-2 rounded-xl border ${isDarkMode ? 'bg-gray-600 border-gray-500' : 'bg-gray-100 border-gray-300'}`}>
                 {item.icon}
               </div>
 

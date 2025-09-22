@@ -111,33 +111,45 @@ const Data = [
     };
   })(),
 
-  (() => {
-    
-    return {
-      title: "عدد زوار فيسبوك",
-      value: 4860,
-      mod: "زوار فيسبوك",
-      total: 42135,
-      color: colors[2],
-      icon: (
-        <IconBadge color={colors[2]}>
-          <CiFacebook />
-        </IconBadge>
-      ),
-      chart: (
-        <Chart
-          options={{
-            ...sparkOptions(colors[2]),
-            chart: { type: "bar", height: 60, sparkline: { enabled: true } },
-            plotOptions: { bar: { columnWidth: "60%", borderRadius: 3 } },
-          }}
-          series={[{ data: [1000, 5205, 8002, 13778, 22220, 35000, 42135] }]}
-          type="bar"
-          height={60}
-        />
-      ),
-    };
-  })(),
+(() => {
+  return {
+    title: "عدد زوار فيسبوك",
+    value: 4860,
+    mod: "زوار فيسبوك",
+    total: 42135,
+    color: colors[2],
+    icon: (
+      <IconBadge color={colors[2]}>
+        <CiFacebook />
+      </IconBadge>
+    ),
+    chart: (
+      <Chart
+        options={{
+          ...sparkOptions(colors[2]),
+          chart: { type: "bar", height: 60, sparkline: { enabled: true } },
+          plotOptions: {
+            bar: {
+              columnWidth: "55%", // عرض العمود
+              borderRadius: 4,    // حواف ناعمة
+            },
+          },
+          tooltip: {
+            y: {
+              formatter: (val) => `${val} زائر`, // Tooltip بالعربي
+            },
+          },
+        }}
+        series={[
+          { data: [1000, 5205, 8002, 13778, 22220, 35000, 42135] },
+        ]}
+        type="bar"
+        height={60}
+      />
+    ),
+  };
+})(),
+
 
   (() => {
     
@@ -203,39 +215,38 @@ const Data = [
     };
   })(),
 
-  (() => {
-    return {
-      title: "عدد المتفاعلين مع المنصة",
-      value: 1658,
-      total: 19510,
-      mod: "متفاعلين",
-      color: colors[5],
-      icon: (
-        <IconBadge color={colors[5]}>
-          <FaGlobe />
-        </IconBadge>
-      ),
-      chart: (
-        <Chart
-          options={{
-            chart: { type: "heatmap", height: 60, sparkline: { enabled: true } },
-            plotOptions: { heatmap: { shadeIntensity: 0.2, radius: 2 } },
-            dataLabels: { enabled: false },
-            colors: [colors[5]],
-            tooltip: { x: { show: false } },
-          }}
-          series={[
-            {
-              name: "W",
-              data: [12, 19, 8, 15, 10, 17, 1658],
-            },
-          ]}
-          type="heatmap"
-          height={60}
-        />
-      ),
-    };
-  })(),
+(() => {
+  const data = [130, 119, 400, 800, 1000, 1117, 1658];
+  return {
+    title: "عدد المتفاعلين مع المنصة",
+    value: 1658,
+    total: 19510,
+    mod: "متفاعلين",
+    color: colors[5],
+    icon: (
+      <IconBadge color={colors[5]}>
+        <FaGlobe />
+      </IconBadge>
+    ),
+    chart: (
+      <Chart
+        options={{
+          ...sparkOptions(colors[5]),
+          chart: { type: "bar", height: 60, sparkline: { enabled: true } },
+          plotOptions: { bar: { columnWidth: "55%", borderRadius: 4 } },
+          dataLabels: { enabled: false },
+          tooltip: {
+            x: { show: false },
+            y: { formatter: (v) => `${v} متفاعل` },
+          },
+        }}
+        series={[{ data }]}
+        type="bar"
+        height={60}
+      />
+    ),
+  };
+})(),
 
   (() => {
     return {
