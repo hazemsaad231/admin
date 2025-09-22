@@ -19,8 +19,8 @@ export default function Home() {
               key={item.title}
               className={`
               border ${isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-black border-gray-200'}
-                shadow-sm hover:shadow-lg transition-all duration-500 rounded-4xl
-                p-2 flex flex-col items-center text-center gap-2
+                shadow-md hover:shadow-lg transition-all duration-500 rounded-4xl
+                p-1 flex flex-col items-center text-center gap-2
                 hover:-translate-y-3
               
               tabIndex={0}

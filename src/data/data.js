@@ -14,7 +14,6 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 export const colors = ['orange','black',"blue","aqua",'brown','gray','green'];
 
-
 const IconBadge = ({
   children,
   color,
@@ -203,7 +202,7 @@ const Data = [
           options={{
             chart: { type: "polarArea", height: 60, sparkline: { enabled: true } },
             labels: ["مسجل", "باقي"],
-            colors: [colors[4], "blue"],
+            colors: [colors[4], colors[4]],
             legend: { show: false },
             tooltip: { enabled: false },
           }}

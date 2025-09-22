@@ -41,7 +41,7 @@ export default function Header() {
             alt="Logo"
             width={50}
             height={50}
-            className="object-contain shadow-lg rounded-xl w-10 h-10 md:w-16 md:h-16 cursor-pointer hover:scale-105 transition-transform duration-300"
+            className="object-contain shadow-lg rounded-2xl w-10 h-10 md:w-16 md:h-16 cursor-pointer hover:scale-105 transition-transform duration-300"
             priority
           /> </a>
          
