@@ -13,13 +13,7 @@ export default function Home() {
     <div className={`min-h-screen ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-gray-100 text-black'}
                     flex flex-col py-8 px-4 md:px-6 lg:px-8 mt-20`}>
       <div className="mx-auto w-full max-w-7xl">
-        <div className={`grid gap-3 ${
-          filteredData.length === 1
-            ? 'grid-cols-1'
-            : filteredData.length === 2
-            ? 'grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2'
-            : 'grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-        }`}>
+        <div className={`grid gap-3 grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3`}>
           {filteredData.map((item) => (
             <div
               key={item.title}
@@ -27,13 +21,13 @@ export default function Home() {
               border ${isDarkMode ? 'bg-gray-700 text-white border-gray-600' : 'bg-white text-black border-gray-200'}
                 shadow-md hover:shadow-lg transition-all duration-500 rounded-4xl
                 p-1 flex flex-col items-center text-center gap-2
-                hover:-translate-y-3
+                hover:-translate-y-2
               
               tabIndex={0}
               aria-label={item.title}`}
             >
               {/* أيقونة */}
-              <div className={`p-2 rounded-xl border ${isDarkMode ? 'bg-gray-600 border-gray-500' : 'bg-gray-100 border-gray-300'}`}>
+              <div className={`p-1 rounded-xl border ${isDarkMode ? 'bg-gray-600 border-gray-500' : 'bg-gray-100 border-gray-300'}`}>
                 {item.icon}
               </div>
 
@@ -45,7 +39,7 @@ export default function Home() {
               {/* العنوان */}
               <div
                 className={`
-                  inline-flex items-center gap-2 rounded-full
+                  inline-flex items-center gap-1 rounded-full
                   border ${isDarkMode ? 'bg-gray-600 border-gray-500 text-white' : 'bg-gray-100 border-gray-300 text-gray-800'}
                   px-3 py-1 text-xs
                   font-bold
@@ -67,7 +61,7 @@ export default function Home() {
 
               {/* الرسم البياني */}
               {item.chart && (
-                <div className="mt-3 h-16 md:h-20 w-full [direction:ltr] text-gray-500">
+                <div className="mt-2 h-16 px-1 w-full [direction:ltr] text-gray-500">
                   {item.chart}
                 </div>
               )}

@@ -3,16 +3,17 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { CiFacebook, CiUser, CiLocationOn } from "react-icons/ci";
+import { CiFacebook, CiLocationOn } from "react-icons/ci";
 import { BiSolidInstitution } from "react-icons/bi";
 import { HiOutlineDocumentReport } from "react-icons/hi";
+import { PiUsersThreeFill } from "react-icons/pi";
 
 import { FaFolderOpen, FaGlobe } from "react-icons/fa";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 
-export const colors = ['orange','black',"blue","aqua",'brown','gray','green'];
+export const colors = ['orange',"blue",'green'];
 
 const IconBadge = ({
   children,
@@ -57,7 +58,7 @@ const Data = [
     color,
     icon: (
       <IconBadge color={color}>
-        <CiUser />
+        <PiUsersThreeFill />
       </IconBadge>
     ),
     chart: (
@@ -87,45 +88,22 @@ const Data = [
   };
 })()
 ,
-  (() => {
-    return {
-      title: "عدد مشاريع الجمعيات المنشورة في المنصة",
-      mod : "مشاريع الجمعيات",
-      value: 37,
-      total: 1122,
-      color: colors[1],
-      icon: (
-        <IconBadge color={colors[1]}>
-          <FaFolderOpen />
-        </IconBadge>
-      ),
-      chart: (
-        <Chart
-          options={sparkOptions(colors[1])}
-          series={[{ data: [5, 7, 15, 22, 30, 31, 37] }]}
-          type="area"
-          height={60}
-        />
-      ),
-    };
-  })(),
-
 (() => {
   return {
     title: "عدد زوار فيسبوك",
     value: 4860,
     mod: "زوار فيسبوك",
     total: 42135,
-    color: colors[2],
+    color: colors[1],
     icon: (
-      <IconBadge color={colors[2]}>
+      <IconBadge color={colors[1]}>
         <CiFacebook />
       </IconBadge>
     ),
     chart: (
       <Chart
         options={{
-          ...sparkOptions(colors[2]),
+          ...sparkOptions(colors[1]),
           chart: { type: "bar", height: 60, sparkline: { enabled: true } },
           plotOptions: {
             bar: {
@@ -148,66 +126,23 @@ const Data = [
     ),
   };
 })(),
-
-
-  (() => {
-    
-    const value = 10;
-    const total = 43;
+(() => {
     return {
-      title: "عدد التقارير والدراسات المنشورة",
-      mod: "تقارير ودراسات",
-      value,
-      total,
-      color: colors[3],
+      title: "عدد مشاريع الجمعيات المنشورة في المنصة",
+      mod : "مشاريع الجمعيات",
+      value: 37,
+      total: 1122,
+      color: colors[2],
       icon: (
-        <IconBadge color={colors[3]}>
-          <HiOutlineDocumentReport />
+        <IconBadge color={colors[2]}>
+          <FaFolderOpen />
         </IconBadge>
       ),
       chart: (
         <Chart
-          options={{
-            chart: { type: "radialBar", height: 60, sparkline: { enabled: true } },
-            plotOptions: {
-              radialBar: {
-                hollow: { size: "40%" },
-                dataLabels: { show: false },
-              },
-            },
-            colors: [colors[3]],
-          }}
-          series={[Math.round((value / total) * 100)]}
-          type="radialBar"
-          height={60}
-        />
-      ),
-    };
-  })(),
-
-  (() => {
-    return {
-      title: "عدد الجمعيات المسجلة في المنصة",
-      value: 0,
-      total: 135,
-      mod: "جمعيات المسجلة",
-      color: colors[4],
-      icon: (
-        <IconBadge color={colors[4]}>
-          <BiSolidInstitution />
-        </IconBadge>
-      ),
-      chart: (
-        <Chart
-          options={{
-            chart: { type: "polarArea", height: 60, sparkline: { enabled: true } },
-            labels: ["مسجل", "باقي"],
-            colors: [colors[4], colors[4]],
-            legend: { show: false },
-            tooltip: { enabled: false },
-          }}
-          series={[0, 135]}
-          type = 'polarArea'
+          options={sparkOptions(colors[2])}
+          series={[{ data: [5, 7, 15, 22, 30, 31, 37] }]}
+          type="area"
           height={60}
         />
       ),
@@ -221,16 +156,16 @@ const Data = [
     value: 1658,
     total: 19510,
     mod: "متفاعلين",
-    color: colors[5],
+    color: colors[0],
     icon: (
-      <IconBadge color={colors[5]}>
+      <IconBadge color={colors[0]}>
         <FaGlobe />
       </IconBadge>
     ),
     chart: (
       <Chart
         options={{
-          ...sparkOptions(colors[5]),
+          ...sparkOptions(colors[0]),
           chart: { type: "bar", height: 60, sparkline: { enabled: true } },
           plotOptions: { bar: { columnWidth: "55%", borderRadius: 4 } },
           dataLabels: { enabled: false },
@@ -246,16 +181,15 @@ const Data = [
     ),
   };
 })(),
-
-  (() => {
+(() => {
     return {
       title: "عدد المحافظات المخططة في المنصة",
       value: 0,
       total: 13,
-      color: colors[6],
+      color: colors[1],
       mod: "محافظات المخططة",
       icon: (
-        <IconBadge color={colors[6]}>
+        <IconBadge color={colors[1]}>
           <CiLocationOn />
         </IconBadge>
       ),
@@ -265,7 +199,7 @@ const Data = [
             chart: { type: "scatter", height: 60, sparkline: { enabled: true } },
             markers: { size: 3 },
             tooltip: { x: { show: false } },
-            colors: [colors[6]],
+            colors: [colors[1]],
             xaxis: { labels: { show: false } },
             yaxis: { labels: { show: false } },
           }}
@@ -273,8 +207,8 @@ const Data = [
             {
               name: "خطة",
               data: [
-                [11, 0],
-                [10, 0],
+                [8, 2],
+                [10, 3],
                 [3, 1],
                 [4, 6],
                 [9, 2],
@@ -285,13 +219,80 @@ const Data = [
                 [2, 3],
                 [5, 8],
                 [0, 3],
-                [8, 2],
+                [4, 2],
 
 
               ],
             },
           ]}
           type="scatter"
+          height={60}
+        />
+      ),
+    };
+  })(),
+
+
+
+
+
+  (() => {
+    
+    const value = 10;
+    const total = 43;
+    return {
+      title: "عدد التقارير والدراسات المنشورة",
+      mod: "تقارير ودراسات",
+      value,
+      total,
+      color: colors[2],
+      icon: (
+        <IconBadge color={colors[2]}>
+          <HiOutlineDocumentReport />
+        </IconBadge>
+      ),
+      chart: (
+        <Chart
+          options={{
+            chart: { type: "radialBar", height: 60, sparkline: { enabled: true } },
+            plotOptions: {
+              radialBar: {
+                hollow: { size: "40%" },
+                dataLabels: { show: false },
+              },
+            },
+            colors: [colors[2]],
+          }}
+          series={[Math.round((value / total) * 100)]}
+          type="radialBar"
+          height={60}
+        />
+      ),
+    };
+  })(),
+    (() => {
+    return {
+      title: "عدد الجمعيات المسجلة في المنصة",
+      value: 0,
+      total: 135,
+      mod: "جمعيات المسجلة",
+      color: colors[1],
+      icon: (
+        <IconBadge color={colors[1]}>
+          <BiSolidInstitution />
+        </IconBadge>
+      ),
+      chart: (
+        <Chart
+          options={{
+            chart: { type: "polarArea", height: 60, sparkline: { enabled: true } },
+            labels: ["مسجل", "باقي"],
+            colors: [colors[1], colors[1]],
+            legend: { show: false },
+            tooltip: { enabled: false },
+          }}
+          series={[0, 135]}
+          type = 'polarArea'
           height={60}
         />
       ),
